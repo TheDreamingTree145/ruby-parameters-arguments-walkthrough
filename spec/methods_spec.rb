@@ -1,19 +1,10 @@
 describe '#candy_bars' do
   bars = ['Snickers', 'Payday', '100 Grand', 'Baby Ruth', 'Butterfinger']
-  index_one = 3
   index_two = 1
-  
-  it 'accepts two arguments' do
 
-    allow(self).to receive(:puts)
-
-    expect { candy_bars(bars, index_one) }.to_not raise_error
-    expect { candy_bars(bars, index_two) }.to_not raise_error
-  end
-
-  it 'outputs out the candy bar at the index and the index passed into the argument' do
+  it 'outputs the candy bar at the index and the index passed into the argument' do
     
-    expect {candy_bars(bars, index_one) }.to output("3. Baby Ruth\n").to_stdout
+    expect { candy_bars(['Snickers', 'Payday', '100 Grand', 'Baby Ruth', 'Butterfinger'], 4) }.to output("4. Butterfinger\n").to_stdout
 
   end
   
@@ -38,7 +29,7 @@ describe '#cartoons' do
   
   it 'outputs the first and last element of array in with their rank' do 
     
-    expect { cartoons(characters) }.to output("1. SpongeBob SquarePants and 5. Philip J. Fry\n").to_stdout
+    expect(cartoons(characters)).to eq("1. SpongeBob SquarePants and 5. Philip J. Fry")
   
   end
   
@@ -46,7 +37,7 @@ describe '#cartoons' do
     
     characters = ["Doug Funnie", "Skeeter", "Peter Griffin", "Stewie Griffin"]
     
-    expect { cartoons(characters) }.to output("1. Doug Funnie and 4. Stewie Griffin\n").to_stdout
+    expect(cartoons(characters)).to eq("1. Doug Funnie and 4. Stewie Griffin")
   end
 end
 
